@@ -1,0 +1,17 @@
+{
+  "template": "single-partner",
+  "language": "zh",
+  "headline": "钱包集成",
+  "subheadline": "",
+  "cta": "在 App > 浏览器了解更多",
+  "items": [
+    {
+      "name": "OneKey",
+      "logo": "brand-assets/OneKey_社媒图AI规范/logos/logo_常用/logomark_浅色背景使用/icon-only.svg"
+    },
+    {
+      "name": "Altura",
+      "logo": ""
+    }
+  ]
+}

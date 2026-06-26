@@ -1,0 +1,4 @@
+interface:
+  display_name: "OneKey Social Image System"
+  short_description: "Generate stable OneKey social image assets"
+  default_prompt: "Use $onekey-social-image-system to create a validated OneKey social image from this brief."

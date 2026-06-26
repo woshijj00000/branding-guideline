@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OneKey Social Template</title>
+    <style>
+      @font-face {
+        font-family: "MiSans";
+        src: url("../../brand-assets/OneKey_社媒图AI规范/字体/中文字体/中文_正文字体/MiSans-Regular.ttf") format("truetype");
+        font-weight: 400;
+      }
+
+      @font-face {
+        font-family: "MiSans";
+        src: url("../../brand-assets/OneKey_社媒图AI规范/字体/中文字体/中文_描述文字字体/MiSans-Semibold.ttf") format("truetype");
+        font-weight: 600;
+      }
+
+      @font-face {
+        font-family: "MiSans";
+        src: url("../../brand-assets/OneKey_社媒图AI规范/字体/中文字体/中文_主标题字体/MiSans-Bold.ttf") format("truetype");
+        font-weight: 700;
+      }
+
+      @font-face {
+        font-family: "Roobert";
+        src: url("../../brand-assets/OneKey_社媒图AI规范/字体/英文字体/英文_正文字体/Roobert-Regular.ttf") format("truetype");
+        font-weight: 400;
+      }
+
+      @font-face {
+        font-family: "Roobert";
+        src: url("../../brand-assets/OneKey_社媒图AI规范/字体/英文字体/英文_描述文字字体/Roobert-SemiBold.ttf") format("truetype");
+        font-weight: 600;
+      }
+
+      @font-face {
+        font-family: "Roobert";
+        src: url("../../brand-assets/OneKey_社媒图AI规范/字体/英文字体/英文_主标题字体/Roobert-Bold.ttf") format("truetype");
+        font-weight: 700;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 512px;
+        height: 512px;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      body {
+        background: #3bd23d;
+      }
+
+      .canvas {
+        position: relative;
+        width: 512px;
+        height: 512px;
+        padding: 32px;
+        color: #000;
+        background: #3bd23d;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        height: 33px;
+        font-size: 14.5px;
+        font-weight: 700;
+      }
+
+      .brand img {
+        width: 33px;
+        height: 33px;
+        display: block;
+        object-fit: contain;
+      }
+
+      .brand.wordmark img {
+        width: 82px;
+        height: auto;
+      }
+
+      .headline {
+        margin: 23px 0 21.5px;
+        max-width: 420px;
+        font-size: 35.5px;
+        line-height: 1.05;
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+
+      .headline.zh {
+        font-size: 55px;
+        line-height: 1;
+      }
+
+      .panel {
+        width: 100%;
+        min-height: 205px;
+        border-radius: 16px;
+        background: #fff;
+        padding: 29px 32px;
+      }
+
+      .panel.guide {
+        position: relative;
+        min-height: 257.5px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .panel.perps {
+        min-height: 190px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 130px;
+        gap: 22px;
+        align-items: center;
+      }
+
+      .market-copy {
+        display: grid;
+        gap: 10px;
+        align-content: center;
+      }
+
+      .eyebrow {
+        width: max-content;
+        max-width: 100%;
+        border: 1px solid #3bd23d;
+        border-radius: 249.75px;
+        padding: 5.5px 10.5px;
+        font-size: 11px;
+        line-height: 1;
+        font-weight: 600;
+      }
+
+      .market-pair {
+        font-size: 29.5px;
+        line-height: 0.96;
+        font-weight: 700;
+        overflow-wrap: anywhere;
+      }
+
+      .market-pair span {
+        color: #3bd23d;
+      }
+
+      .market-subtitle {
+        max-width: 212.5px;
+        border-left: 2.5px solid #3bd23d;
+        padding-left: 7px;
+        font-size: 12px;
+        line-height: 1.16;
+        font-weight: 600;
+      }
+
+      .leverage {
+        display: grid;
+        gap: 1.5px;
+        width: max-content;
+      }
+
+      .leverage-label {
+        font-size: 10px;
+        line-height: 1;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      .leverage-value {
+        color: #3bd23d;
+        font-size: 42px;
+        line-height: 0.9;
+        font-weight: 700;
+      }
+
+      .market-badge {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: #fff;
+        overflow: visible;
+        box-shadow: 0 8.5px 0 #3bd23d;
+        color: #000;
+        font-size: 23px;
+        line-height: 1;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .market-badge img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: contain;
+        display: block;
+      }
+
+      .panel.guide::before {
+        content: "0101  0101  0101  0101  0101";
+        position: absolute;
+        top: 19.5px;
+        left: 32px;
+        max-width: 385px;
+        color: #b9f4ba;
+        opacity: 0.58;
+        font-size: 29.5px;
+        line-height: 1.62;
+        font-weight: 400;
+        word-spacing: 11.5px;
+      }
+
+      .quote {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 14px;
+        color: #3bd23d;
+        font-size: 56.5px;
+        line-height: 0.6;
+        font-weight: 700;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 28px 23px;
+        align-items: start;
+      }
+
+      .single {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        align-items: center;
+        min-height: 177px;
+      }
+
+      .item {
+        display: grid;
+        justify-items: center;
+        gap: 9px;
+        min-width: 0;
+      }
+
+      .item-logo,
+      .logo-fallback {
+        width: 68px;
+        height: 68px;
+        border-radius: 50%;
+        object-fit: contain;
+      }
+
+      .single .item-logo,
+      .single .logo-fallback {
+        width: 93px;
+        height: 93px;
+        border-radius: 16px;
+      }
+
+      .logo-fallback {
+        display: grid;
+        place-items: center;
+        color: #fff;
+        background: #000;
+        font-size: 26px;
+        font-weight: 700;
+      }
+
+      .item-name {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        text-align: center;
+        font-size: 14.5px;
+        line-height: 1.05;
+        font-weight: 600;
+      }
+
+      .single .item-name {
+        font-size: 18px;
+      }
+
+      .subheadline {
+        position: relative;
+        z-index: 1;
+        margin-top: 9px;
+        max-width: 350px;
+        font-size: 18px;
+        line-height: 1.16;
+        font-weight: 600;
+      }
+
+      .cta {
+        position: absolute;
+        left: 32px;
+        bottom: 24.5px;
+        max-width: 430px;
+        font-size: 14px;
+        line-height: 1.1;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="root" class="canvas"></main>
+    <script>
+      const fileUrl = (root, relativePath) => {
+        if (!relativePath) return "";
+        if (/^(https?:|file:|data:)/.test(relativePath)) return relativePath;
+        const normalizedRoot = root.endsWith("/") ? root : `${root}/`;
+        return `file://${normalizedRoot}${relativePath}`;
+      };
+
+      const createLogo = (item, root) => {
+        if (item.logo) {
+          const img = document.createElement("img");
+          img.className = "item-logo";
+          img.src = fileUrl(root, item.logo);
+          img.alt = item.name;
+          return img;
+        }
+
+        const fallback = document.createElement("div");
+        fallback.className = "logo-fallback";
+        fallback.textContent = [...item.name][0] || "O";
+        return fallback;
+      };
+
+      window.renderOneKeySocial = ({ brand, content, root }) => {
+        const canvas = document.getElementById("root");
+        canvas.style.fontFamily = content.language === "zh" ? "MiSans, sans-serif" : "Roobert, sans-serif";
+        canvas.innerHTML = "";
+
+        if (content.template !== "single-partner") {
+          const brandLockup = document.createElement("section");
+          brandLockup.className = "brand wordmark";
+          brandLockup.innerHTML = `<img src="${fileUrl(root, brand.logos.wordmarkBlack)}" alt="OneKey wordmark" />`;
+          canvas.appendChild(brandLockup);
+        }
+
+        const headline = document.createElement("h1");
+        headline.className = `headline ${content.language}`;
+        headline.textContent = content.headline;
+        canvas.appendChild(headline);
+
+        const panel = document.createElement("section");
+        panel.className = "panel";
+
+        if (content.template === "guide-cover") {
+          panel.classList.add("guide");
+          const quote = document.createElement("div");
+          quote.className = "quote";
+          quote.textContent = "“";
+          panel.appendChild(quote);
+          const subheadline = document.createElement("p");
+          subheadline.className = "subheadline";
+          subheadline.textContent = content.subheadline;
+          panel.appendChild(subheadline);
+        } else if (content.template === "perps-market") {
+          panel.classList.add("perps");
+          const copy = document.createElement("div");
+          copy.className = "market-copy";
+          const pairParts = String(content.marketPair || "").split("/");
+          copy.innerHTML = `
+            <div class="eyebrow">OneKey App now supports</div>
+            <div class="market-pair"><span>${pairParts[0] || content.marketPair}</span>${pairParts[1] ? `/${pairParts[1]}` : ""}</div>
+            <div class="market-subtitle">${content.subheadline}</div>
+            <div class="leverage">
+              <div class="leverage-label">Up to</div>
+              <div class="leverage-value">${content.leverage}</div>
+              <div class="leverage-label">Leverage</div>
+            </div>
+          `;
+          const badge = document.createElement("div");
+          badge.className = "market-badge";
+          if (content.logo) {
+            badge.innerHTML = `<img src="${fileUrl(root, content.logo)}" alt="${content.marketPair}" />`;
+          } else {
+            badge.textContent = pairParts[0] || "MKT";
+          }
+          panel.appendChild(copy);
+          panel.appendChild(badge);
+        } else {
+          const list = document.createElement("div");
+          list.className = content.template === "single-partner" ? "single" : "grid";
+          for (const item of content.items || []) {
+            const cell = document.createElement("article");
+            cell.className = "item";
+            cell.appendChild(createLogo(item, root));
+            const name = document.createElement("div");
+            name.className = "item-name";
+            name.textContent = item.name;
+            cell.appendChild(name);
+            list.appendChild(cell);
+          }
+          panel.appendChild(list);
+        }
+
+        canvas.appendChild(panel);
+
+        if (content.cta) {
+          const cta = document.createElement("footer");
+          cta.className = "cta";
+          cta.textContent = content.cta;
+          canvas.appendChild(cta);
+        }
+      };
+    </script>
+  </body>
+</html>

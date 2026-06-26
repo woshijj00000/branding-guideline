@@ -1,0 +1,20 @@
+{
+  "name": "onekey-social-image-system",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "new": "node scripts/new-content.mjs",
+    "validate": "node scripts/validate-all.mjs",
+    "render:all": "node scripts/render-all.mjs",
+    "build": "npm run validate && npm run render:all",
+    "review": "node scripts/final-review.mjs",
+    "figma:prepare": "node scripts/prepare-figma-json.mjs",
+    "figma:check": "node --check figma-plugin/code.js",
+    "render:cn": "node scripts/render.mjs brand-system/content/example-cn.json out/example-cn.png",
+    "render:en": "node scripts/render.mjs brand-system/content/example-en.json out/example-en.png"
+  },
+  "devDependencies": {
+    "playwright": "^1.54.0"
+  }
+}

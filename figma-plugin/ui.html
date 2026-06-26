@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 16px;
+        color: #111;
+        font: 12px/1.45 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: 15px;
+        line-height: 1.2;
+      }
+
+      label {
+        display: block;
+        margin: 12px 0 6px;
+        font-weight: 600;
+      }
+
+      textarea {
+        width: 100%;
+        height: 340px;
+        resize: vertical;
+        border: 1px solid #d8d8d8;
+        border-radius: 6px;
+        padding: 10px;
+        font: 11px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+
+      input {
+        width: 100%;
+        border: 1px solid #d8d8d8;
+        border-radius: 6px;
+        padding: 8px 10px;
+        font: inherit;
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      button {
+        height: 34px;
+        border: 0;
+        border-radius: 6px;
+        padding: 0 12px;
+        background: #3bd23d;
+        color: #000;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      button.secondary {
+        background: #eee;
+        font-weight: 600;
+      }
+
+      #status {
+        min-height: 18px;
+        margin-top: 10px;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>OneKey Social Image Builder</h1>
+    <div class="row">
+      <div>
+        <label for="frameName">Frame name</label>
+        <input id="frameName" placeholder="2026-06-16_campaign_en_template" />
+      </div>
+      <div>
+        <label for="pageName">Target page</label>
+        <input id="pageName" value="04 AI Generated" />
+      </div>
+    </div>
+    <label for="json">Content JSON</label>
+    <textarea id="json" spellcheck="false" placeholder="Paste content JSON from brand-system/content/*.json"></textarea>
+    <div class="actions">
+      <button id="create">Create editable frame</button>
+      <button id="sample" class="secondary">Insert sample</button>
+    </div>
+    <div id="status"></div>
+    <script>
+      const jsonInput = document.getElementById("json");
+      const status = document.getElementById("status");
+      const frameName = document.getElementById("frameName");
+      const pageName = document.getElementById("pageName");
+
+      document.getElementById("sample").onclick = () => {
+        jsonInput.value = JSON.stringify(
+          {
+            systemVersion: "v1",
+            template: "integration-grid",
+            templateVariant: "four-grid",
+            language: "en",
+            campaign: "latest-integrations",
+            createdAt: new Date().toISOString().slice(0, 10),
+            headline: "The Latest dApp Integrations",
+            subheadline: "",
+            cta: "Learn more in App > Browser",
+            items: [
+              { name: "AAVE", logo: "" },
+              { name: "Pendle", logo: "" },
+              { name: "Jupiter", logo: "" },
+              { name: "Polymarket", logo: "" }
+            ]
+          },
+          null,
+          2
+        );
+      };
+
+      document.getElementById("create").onclick = () => {
+        let content;
+        try {
+          content = JSON.parse(jsonInput.value);
+        } catch (error) {
+          status.textContent = `Invalid JSON: ${error.message}`;
+          return;
+        }
+
+        parent.postMessage(
+          {
+            pluginMessage: {
+              type: "create-frame",
+              content,
+              frameName: frameName.value,
+              pageName: pageName.value || "04 AI Generated"
+            }
+          },
+          "*"
+        );
+      };
+
+      onmessage = (event) => {
+        const message = event.data.pluginMessage;
+        if (!message) return;
+        status.textContent = message.status || "";
+      };
+    </script>
+  </body>
+</html>
+

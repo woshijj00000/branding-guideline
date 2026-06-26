@@ -1,0 +1,13 @@
+{
+  "template": "integration-grid",
+  "language": "en",
+  "headline": "The Latest dApp Integrations",
+  "subheadline": "",
+  "cta": "Learn more in App > Browser",
+  "items": [
+    { "name": "AAVE", "logo": "" },
+    { "name": "Pendle", "logo": "" },
+    { "name": "Jupiter", "logo": "" },
+    { "name": "Polymarket", "logo": "" }
+  ]
+}

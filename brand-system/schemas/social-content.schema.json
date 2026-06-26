@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://onekey.so/schemas/social-content.schema.json",
+  "title": "OneKey Social Content",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["template", "language", "headline"],
+  "properties": {
+    "systemVersion": {
+      "type": "string"
+    },
+    "template": {
+      "type": "string",
+      "enum": ["integration-grid", "single-partner", "guide-cover", "perps-market"]
+    },
+    "templateVariant": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string",
+      "enum": ["zh", "en"]
+    },
+    "campaign": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "sourceBrief": {
+      "type": "string"
+    },
+    "headline": {
+      "type": "string",
+      "minLength": 1
+    },
+    "subheadline": {
+      "type": "string"
+    },
+    "cta": {
+      "type": "string"
+    },
+    "marketPair": {
+      "type": "string"
+    },
+    "leverage": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "logo"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "logo": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "template": { "const": "integration-grid" } }
+      },
+      "then": {
+        "required": ["cta", "items"],
+        "properties": {
+          "items": {
+            "minItems": 2,
+            "maxItems": 8
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "template": { "const": "single-partner" } }
+      },
+      "then": {
+        "required": ["cta", "items"],
+        "properties": {
+          "items": {
+            "minItems": 1,
+            "maxItems": 2
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "template": { "const": "guide-cover" } }
+      },
+      "then": {
+        "required": ["subheadline"],
+        "properties": {
+          "items": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "template": { "const": "perps-market" } }
+      },
+      "then": {
+        "required": ["subheadline", "marketPair", "leverage", "cta"],
+        "properties": {
+          "items": {
+            "maxItems": 0
+          }
+        }
+      }
+    }
+  ]
+}
+

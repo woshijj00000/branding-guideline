@@ -1,0 +1,123 @@
+{
+  "brand": "OneKey",
+  "version": "2026-06-15",
+  "sourceAssetRoot": "brand-assets/OneKey_社媒图AI规范",
+  "canvas": {
+    "width": 512,
+    "height": 512,
+    "exportScale": 1,
+    "safeArea": 32
+  },
+  "colors": {
+    "green": "#3BD23D",
+    "black": "#000000",
+    "white": "#FFFFFF",
+    "gray": "#6A6A6A",
+    "paleGreen": "#B9F4BA"
+  },
+  "fonts": {
+    "zh": {
+      "family": "MiSans",
+      "regular": "brand-assets/OneKey_社媒图AI规范/字体/中文字体/中文_正文字体/MiSans-Regular.ttf",
+      "medium": "brand-assets/OneKey_社媒图AI规范/字体/中文字体/中文_描述文字字体/MiSans-Semibold.ttf",
+      "semibold": "brand-assets/OneKey_社媒图AI规范/字体/中文字体/中文_描述文字字体/MiSans-Semibold.ttf",
+      "bold": "brand-assets/OneKey_社媒图AI规范/字体/中文字体/中文_主标题字体/MiSans-Bold.ttf",
+      "titleWeight": "bold",
+      "bodyWeight": "semibold"
+    },
+    "en": {
+      "family": "Roobert",
+      "regular": "brand-assets/OneKey_社媒图AI规范/字体/英文字体/英文_正文字体/Roobert-Regular.ttf",
+      "medium": "brand-assets/OneKey_社媒图AI规范/字体/英文字体/英文_描述文字字体/Roobert-SemiBold.ttf",
+      "semibold": "brand-assets/OneKey_社媒图AI规范/字体/英文字体/英文_描述文字字体/Roobert-SemiBold.ttf",
+      "bold": "brand-assets/OneKey_社媒图AI规范/字体/英文字体/英文_主标题字体/Roobert-Bold.ttf",
+      "titleWeight": "bold",
+      "bodyWeight": "semibold"
+    }
+  },
+  "logos": {
+    "logomarkBlack": "brand-assets/OneKey_社媒图AI规范/logos/logo_常用/logomark_浅色背景使用/icon-only.svg",
+    "logomarkWhite": "brand-assets/OneKey_社媒图AI规范/logos/logo_常用/logomark_深色背景使用/icon-only-white.svg",
+    "logomarkGreen": "brand-assets/OneKey_社媒图AI规范/logos/logo_常用/logomark_深色背景使用/icon-only-green.svg",
+    "wordmarkBlack": "brand-assets/OneKey_社媒图AI规范/logos/logo_常用/logomark_浅色背景使用/wordmark.svg",
+    "wordmarkWhite": "brand-assets/OneKey_社媒图AI规范/logos/logo_常用/logomark_深色背景使用/wordmark-white.svg",
+    "wordmarkGreen": "brand-assets/OneKey_社媒图AI规范/logos/logo_常用/logomark_深色背景使用/wordmark-green.svg",
+    "appLogomarkBlack": "brand-assets/OneKey_社媒图AI规范/logos/logo_图中出现app字样或者界面的时候使用/logomark_浅色背景使用/icon-app-black.svg",
+    "appLogomarkGreen": "brand-assets/OneKey_社媒图AI规范/logos/logo_图中出现app字样或者界面的时候使用/logomark_浅色背景使用/icon-app-green.svg",
+    "appWordmarkBlack": "brand-assets/OneKey_社媒图AI规范/logos/logo_图中出现app字样或者界面的时候使用/logomark_浅色背景使用/logotype-black.svg",
+    "appWordmarkWhiteOnLight": "brand-assets/OneKey_社媒图AI规范/logos/logo_图中出现app字样或者界面的时候使用/logomark_浅色背景使用/logotype-white.svg",
+    "appWordmarkWhite": "brand-assets/OneKey_社媒图AI规范/logos/logo_图中出现app字样或者界面的时候使用/logomark_深色背景使用/logotype-white.svg",
+    "appWordmarkGreen": "brand-assets/OneKey_社媒图AI规范/logos/logo_图中出现app字样或者界面的时候使用/logomark_深色背景使用/logotype-green.svg"
+  },
+  "layoutRules": {
+    "background": "OneKey green should be a strong first-viewport signal. It can be full-bleed, a major block, a frame, or a dominant panel depending on the layout.",
+    "typography": "Use Roobert-Bold or MiSans-Bold for titles. Use Roobert-SemiBold or MiSans-Semibold for body labels and CTA text. Keep line count short and avoid decorative typography.",
+    "contentPanels": "Use clean white or green information zones. Layouts may vary, but the hierarchy must stay simple, spacious, and immediately scannable.",
+    "brandLockup": "Prefer official logomark or wordmark assets. Use the logomark with a text label only when a layout needs the App context.",
+    "language": "Use MiSans for Chinese and Roobert for English. Do not mix fonts inside the same language block.",
+    "avoid": [
+      "photorealistic scenes",
+      "cinematic lighting",
+      "gradient backgrounds",
+      "3D mascots",
+      "random decorative blobs",
+      "off-brand colors",
+      "AI-generated logo shapes",
+      "uncontrolled text rendered inside diffusion images"
+    ]
+  },
+  "templates": {
+    "integration-grid": {
+      "purpose": "Announce multiple supported apps, chains, partners, tokens, or markets.",
+      "requiredFields": ["headline", "items", "cta"],
+      "variants": ["four-grid", "dense-grid", "category-grid"],
+      "limits": {
+        "headlineMaxCharsZh": 18,
+        "headlineMaxCharsEn": 56,
+        "ctaMaxCharsZh": 22,
+        "ctaMaxCharsEn": 42,
+        "itemsMin": 2,
+        "itemsMax": 8
+      }
+    },
+    "single-partner": {
+      "purpose": "Announce one partner, app, chain, token, or market.",
+      "requiredFields": ["headline", "items", "cta"],
+      "variants": ["logo-pair-panel", "hero-logo", "split-lockup"],
+      "limits": {
+        "headlineMaxCharsZh": 10,
+        "headlineMaxCharsEn": 32,
+        "ctaMaxCharsZh": 22,
+        "ctaMaxCharsEn": 42,
+        "itemsMin": 1,
+        "itemsMax": 2
+      }
+    },
+    "guide-cover": {
+      "purpose": "Cover image for educational/security explainer content.",
+      "requiredFields": ["headline", "subheadline"],
+      "variants": ["quote-panel", "lab-cover", "definition-card"],
+      "limits": {
+        "headlineMaxCharsZh": 18,
+        "headlineMaxCharsEn": 48,
+        "subheadlineMaxChars": 56,
+        "itemsMin": 0,
+        "itemsMax": 0
+      }
+    },
+    "perps-market": {
+      "purpose": "Announce a supported perpetual contract market or leveraged market.",
+      "requiredFields": ["headline", "subheadline", "marketPair", "leverage", "cta"],
+      "variants": ["market-badge", "ticker-panel", "feature-metric"],
+      "limits": {
+        "headlineMaxCharsZh": 28,
+        "headlineMaxCharsEn": 64,
+        "subheadlineMaxChars": 72,
+        "ctaMaxCharsZh": 22,
+        "ctaMaxCharsEn": 42,
+        "itemsMin": 0,
+        "itemsMax": 0
+      }
+    }
+  }
+}
