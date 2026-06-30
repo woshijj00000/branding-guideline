@@ -7,7 +7,7 @@
 先用 HTTPS clone 公开仓库：
 
 ```bash
-git clone https://github.com/woshijj0512/branding-guideline.git
+git clone https://github.com/woshijj00000/branding-guideline.git
 cd branding-guideline
 ```
 
